@@ -1,0 +1,11 @@
+__pycache__/
+*.py[cod]
+
+# Captures and diagnostics stay on the acquisition computer.
+photos/*
+!photos/.gitkeep
+diagnostics/*
+!diagnostics/.gitkeep
+
+# Contains the physical camera serial and local white calibration.
+config/photo_profile.json

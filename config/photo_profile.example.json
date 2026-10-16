@@ -1,0 +1,16 @@
+{
+  "camera_serial": "",
+  "width": 2560,
+  "height": 1920,
+  "pixel_clock_mhz": 43,
+  "frame_rate_fps": 3.13,
+  "exposure_ms": 120.0,
+  "master_gain_percent": 0,
+  "red_gain_factor": 100,
+  "green_gain_factor": 100,
+  "blue_gain_factor": 100,
+  "color_correction": "HQ enhanced",
+  "color_correction_factor": 1.0,
+  "calibration_target": "neutral white reference",
+  "calibrated_at": null
+}
