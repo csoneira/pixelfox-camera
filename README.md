@@ -22,8 +22,9 @@ A separate window provides the live image and controls.
 2. Click **AUTO TUNE ON WHITE** or press **F5**. Keep it still for eight seconds.
 3. Replace the reference with the specimen.
 4. Enter its identifier in **Piece label**.
-5. Click **TAKE PHOTO**. The Space key also takes a photo when the label field is
-   not active.
+5. Press **Enter** or click **TAKE PHOTO**. Enter works while the label field has
+   focus, and the cursor remains there so the next piece label can be entered
+   immediately. Spaces remain available inside labels.
 
 Photos are lossless, native-resolution PNG files in `photos/`, named like:
 

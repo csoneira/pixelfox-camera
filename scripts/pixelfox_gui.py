@@ -328,7 +328,7 @@ class PixelFoxApp:
         self.label_entry = ttk.Entry(controls, textvariable=self.label_var, width=30)
         self.label_entry.grid(row=0, column=1, padx=(8, 16), sticky="ew")
 
-        self.photo_button = ttk.Button(controls, text="TAKE PHOTO  [Space]", command=self.take_photo)
+        self.photo_button = ttk.Button(controls, text="TAKE PHOTO  [Enter]", command=self.take_photo)
         self.photo_button.grid(row=0, column=2, padx=4)
         self.tune_button = ttk.Button(
             controls, text="AUTO TUNE ON WHITE  [F5]", command=self.autotune
@@ -371,7 +371,8 @@ class PixelFoxApp:
 
         root.bind("<F5>", lambda _event: self.autotune())
         root.bind("<Escape>", lambda _event: self.close())
-        root.bind("<space>", self.space_photo)
+        root.bind("<Return>", self.enter_photo)
+        root.bind("<KP_Enter>", self.enter_photo)
         self.label_entry.focus_set()
         self.update_setting_labels()
         self.update_preview()
@@ -401,9 +402,12 @@ class PixelFoxApp:
             self.status_var.set(f"Preview error: {exc}")
         self.root.after(max(50, round(500 / max(self.camera.fps, 1.0))), self.update_preview)
 
-    def space_photo(self, _event=None):
-        if self.root.focus_get() is not self.label_entry:
-            self.take_photo()
+    def enter_photo(self, _event=None):
+        self.take_photo()
+        # Keep the typing workflow uninterrupted: after every capture the
+        # operator can immediately replace or edit the piece label.
+        self.label_entry.focus_set()
+        return "break"
 
     def take_photo(self) -> None:
         if self.camera.tuning:
